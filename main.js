@@ -41,10 +41,16 @@ const getMonthValue = (monthNumber) => {
   return months[monthNumber];
 };
 
+// creating function for getting hour
+const getHour = (hour) => {
+  const hourResult = hour > 9 ? hour : "0" + hour;
+  return hourResult;
+};
+
 // creating function for getting minute
 const getMinute = (minute) => {
-  const result = minute > 9 ? minute : "0" + minute;
-  return result;
+  const minuteResult = minute > 9 ? minute : "0" + minute;
+  return minuteResult;
 };
 
 //creating function for getting seconds
@@ -56,7 +62,7 @@ const getSecond = (second) => {
 // creating function for getting all values and then insert it in the Html code using DOM.
 function accessDateTime() {
   const date = new Date();
-  const hour = date.getHours();
+  const hour = getHour(date.getHours());
   const minutes = getMinute(date.getMinutes());
   const seconds = getSecond(date.getSeconds());
   const day = getDay(date.getDay());
